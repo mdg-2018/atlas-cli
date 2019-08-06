@@ -1,0 +1,15 @@
+{
+  "name": "atlas-cli",
+  "version": "1.0.0",
+  "description": "Command line interface for controlling mongodb atlas clusters",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "atlasmanager": "mdg-2018/libAtlasManager"
+  }
+}

@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 var parseArgs = require('minimist');
 var AtlasApiClient = require('atlasmanager').AtlasApiClient;
 var fs = require('fs');
-var help = require('./help');
+var help = require(__dirname + '/help');
 
 // parse command line arguments and route to appropriate action
 var args = parseArgs(process.argv.slice(2));
@@ -30,17 +32,27 @@ if (args._.length > 1) {
             atlascluster.printclusterinfo(args.clustername);
             break;
         case ("getclusternames"):
-            atlascluster.getclusternames(function(names){
+            atlascluster.getclusternames(function(err,names){
                 names.forEach((name) => {
                     console.log(name);
                 })
             });
             break;
         case ("createcluster"):
-            atlascluster.createcluster(clusterdefinition);
+            atlascluster.createcluster(clusterdefinition, function(err,cluster){
+                if(err){
+                    console.log(err);
+                }
+                console.log(cluster);
+            });
             break;
         case ("deletecluster"):
-            atlascluster.deletecluster(args.clustername, args.hasOwnProperty("all"));
+            atlascluster.deletecluster(args.clustername, args.hasOwnProperty("all"), function(err,result){
+                if(err){
+                    console.log(err);
+                }
+                console.log(result);
+            });
             break;
         case ("modifycluster"):
             atlascluster.modifycluster(args.clustername, clusterdefinition);

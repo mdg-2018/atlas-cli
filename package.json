@@ -6,10 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "atlas-cli": "./cli.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.0",
-    "atlasmanager": "mdg-2018/libAtlasManager"
+    "atlasmanager": "^1.0.1"
   }
 }

@@ -8,7 +8,7 @@ For more information about MongoDB Atlas, check out <a href="https://cloud.mongo
 atlas-cli Usage
 ===================
 
-To get started, rename __config.js to config.js, then specify your username and api key in the config.js file. Run npm install to install dependencies.
+Available in the snap store on Ubuntu: <code>sudo snap install atlas-cli</code>
 
 > node index.js [argument] [options]  
 > example: node index.js createcluster --projectid projectIdHere --apikey apiKeyHere --username userNameHere

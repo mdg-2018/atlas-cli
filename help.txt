@@ -1,42 +1,63 @@
-Atlas Manager Usage
+Atlas Manager
+=============
 
-Arguments
----------
+This app was built to provide an example of how one might use the Atlas API to manage their Atlas clusters. This app contains example code to create, modify, and delete clusters in a project.
 
+For more information about MongoDB Atlas, check out <a href="https://cloud.mongodb.com">https://cloud.mongodb.com</a>
 
-getclusterinfo
-  purpose: lists detailed information about clusters in project
-  options:
-    required: --projectid [yourProjectId]
-    optional: --clustername [nameOfCluster]
-  notes: If cluster name is not specified, info for all clusters in the project will be displayed
+atlas-cli Usage
+===================
 
-getclusternames
-  purpose: returns array containing the names of clusters in the project
-  options:
-    required: --projectid [yourProjectId]
+To get started, rename __config.js to config.js, then specify your username and api key in the config.js file. Run npm install to install dependencies.
 
-createcluster
-  purpose: create a new cluster in a project
-  options:
-    required: --projectid [yourProjectId]
-    optional: --clusterdefintion [definitionJsonHere] --clusterdefintionfile [filePath]
-    notes: clusterdefintion is a string of json defining the cluster configuration, clusterdefintionfile
-           is a path to a json file containing the cluster definition. Only pass in one of these arguments!
-           If not cluster definition of any kind is provided, an M10 with a random name will be created.
+> node index.js [argument] [options]  
+> example: node index.js createcluster --projectid projectIdHere --apikey apiKeyHere --username userNameHere
 
-deletecluster
-  purpose: deletes one or all clusters
-  options: 
-    required: --projectid [yourProjectId]
-    optional: --clustername [nameOfCluster] --all
-    notes: Pass in clustername to delete specific cluster, --all will delete all clusters in project permanently!
+Note: username will be the same as your public api key in Atlas.
 
-modifycluster
-  purpose: changes configuration of existing cluster
-  options:
-    required: --projectid [yourProjectId] --clustername [nameOfCluster]
-              Either --clusterdefinition [definitionJsonHere] OR --clusterdefintionfile [filePath]
+## Arguments
 
+***getclusterinfo***  
+  purpose: lists detailed information about clusters in project  
+  options:  
+  required: --projectid [yourProjectId]  --apikey [yourApiKey] --username [yourUsername]
+  optional: --clustername [nameOfCluster]  
+  notes: If cluster name is not specified, info for all clusters in the project will be displayed  
 
-use --help to display this message
+***getclusternames***  
+  purpose: returns array containing the names of clusters in the project  
+  options:  
+      required: --projectid [yourProjectId]  --apikey [yourApiKey] --username [yourUsername]
+
+***createcluster***  
+  purpose: create a new cluster in a project  
+  options:  
+    required: --projectid [yourProjectId] --apikey [yourApiKey] --username [yourUsername]  
+     optional: --clusterdefintion [definitionJsonHere] --clusterdefintionfile [filePath]  
+    notes: clusterdefintion is a string of json defining the cluster configuration, clusterdefintionfile  
+           is a path to a json file containing the cluster definition. Only pass in one of these arguments!  
+           If not cluster definition of any kind is provided, an M10 with a random name will be created.  
+
+***deletecluster***  
+  purpose: deletes one or all clusters  
+  options:   
+      required: --projectid [yourProjectId] --apikey [yourApiKey] --username [yourUsername]  
+      optional: --clustername [nameOfCluster] --all  
+    notes: Pass in clustername to delete specific cluster, --all will delete all clusters in project permanently!  
+
+***modifycluster***  
+  purpose: changes configuration of existing cluster  
+  options:  
+      required: --projectid [yourProjectId] --apikey [yourApiKey] --username [yourUsername] --clustername [nameOfCluster]  
+                Either --clusterdefinition [definitionJsonHere] OR --clusterdefintionfile [filePath]  
+
+***pausecluster***  
+  purpose: pauses a cluster  
+  options:  
+      required: --projectid [yourProjectId] --apikey [yourApiKey] --username [yourUsername] --clustername [nameOfCluster]
+
+***resumecluster***  
+  purpose: resumes a cluster  
+  options:  
+      required: --projectid [yourProjectId] --apikey [yourApiKey] --username [yourUsername] --clustername [nameOfCluster]
+

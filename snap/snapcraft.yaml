@@ -5,7 +5,7 @@ summary: Command line interface for the MongoDB Atlas API # 79 char long summary
 description: |
   This is a command line tool to create and manage MongoDB clusters in Atlas using the Atlas API.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
+grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
 parts:
